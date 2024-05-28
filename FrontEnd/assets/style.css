@@ -134,6 +134,15 @@ body {
   font-family: "Work Sans";
   font-size: 14px;
 }
+
+#edit {
+  display: none;
+  background-color: black;
+}
+
+#edit h3 {
+  color: white;
+}
 header {
   display: flex;
   justify-content: space-between;
@@ -164,6 +173,14 @@ h2 {
   font-size: 30px;
   color: #1d6154;
 }
+
+#modify {
+  font-family: "Work Sans";
+  font-size: 14px;
+  color: black;
+  display: none;
+  line-height: 30px;
+}
 nav ul {
   display: flex;
   align-items: center;
@@ -173,8 +190,28 @@ nav li {
   padding: 0 10px;
   font-size: 1.2em;
 }
-
+.filter {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 5em;
+  margin-bottom: 4em;
+}
 .button {
+  font-family: "Syne";
+  font-weight: 700;
+  color: #1d6154;
+  min-width: 100px;
+  padding: 0px 14px;
+  text-align: center;
+  line-height: 50px;
+  border-radius: 60px;
+  height: 50px;
+  font-size: 1.2em;
+  border: solid #1d6154 1px;
+}
+.selected {
+  color: white;
   background-color: #1d6154;
 }
 
@@ -206,9 +243,13 @@ li:hover {
   margin-bottom: 0.5em;
 }
 #portfolio h2 {
+  display: flex;
+  justify-content: center;
   text-align: center;
   margin-bottom: 1em;
+  gap: 30px;
 }
+
 .gallery {
   width: 100%;
   display: grid;
@@ -266,4 +307,90 @@ footer nav ul {
   display: flex;
   justify-content: flex-end;
   margin: 2em;
+}
+
+.error {
+  display: none;
+  color: red;
+}
+#login a {
+  text-align: center;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 630px;
+  height: 688px;
+}
+
+.modal-content h2 {
+  font-family: "Work Sans";
+  color: #000000;
+  font-weight: 400;
+  font-size: 26px;
+  margin-top: 1.5em;
+  margin-bottom: 2em !important;
+}
+.close {
+  color: #000000;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+#addPhotoForm {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.galleryToDelete {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 16%;
+  margin-right: 16%;
+  gap: 29px 9px;
+}
+.galleryToDelete .imgToDelete {
+  width: 76.86px;
+  height: 102.57px;
+  position: relative;
+}
+.imgToDelete .remove {
+  cursor: pointer;
+  position: absolute;
+  top: 5%;
+  right: 5%;
+  padding: 4px;
+  font-size: x-small;
+  background-color: #000000;
+  color: white;
+  border-radius: 2px;
+}
+.imgToDelete img {
+  width: 100%;
+  height: auto;
 }

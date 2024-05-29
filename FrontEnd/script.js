@@ -7,6 +7,25 @@ function isToken() {
     .some((item) => item.trim().startsWith("token="));
 }
 
+function getCookie(name) {
+  const value = `; ${document.cookie}`;
+  const parts = value.split(`; ${name}=`);
+  if (parts.length === 2) return parts.pop().split(";").shift();
+}
+
+async function logDelete(id) {
+  let token = getCookie("token");
+
+  if (token) {
+    const response = await fetch(`http://localhost:5678/api/works/${id}`, {
+      method: "DELETE",
+      headers: { Authorization: `Bearer ${token}` },
+    });
+    const res = await response.json();
+    return res;
+  }
+}
+
 window.onload = async function () {
   async function logWorks() {
     const response = await fetch("http://localhost:5678/api/works");
@@ -153,4 +172,4 @@ window.onload = async function () {
   modify();
 };
 
-export { isToken };
+export { isToken, logDelete };

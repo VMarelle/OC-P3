@@ -394,3 +394,18 @@ footer nav ul {
   width: 100%;
   height: auto;
 }
+.grandLine {
+  width: auto;
+  height: 1px;
+  margin-top: 65px;
+  margin-bottom: 35px;
+  margin-left: 100px;
+  margin-right: 100px;
+  background-color: #b3b3b3;
+}
+.addBtn {
+  display: flex;
+  justify-content: center;
+  height: 36px;
+  border: none;
+}

@@ -151,12 +151,20 @@ function modalAddPicture(works) {
     let target = event.target || event;
     let fileTypes = ["image/png", "image/jpg", "image/jpeg"];
     if (
-      target.files[0].size > 4194304 &&
-      fileTypes.includes(target.files[0].type)
+      target?.files[0]?.size > 4194304 &&
+      fileTypes.includes(target?.files[0]?.type)
     ) {
       alert("fichier pas bon là");
       return false;
+    } else if (target.files && target.files[0]) {
+      const reader = new FileReader();
+
+      reader.onload = function (e) {
+        console.log(e.target);
+      };
+      reader.readAsDataURL(target.files[0]);
     }
+
     return true;
   };
 

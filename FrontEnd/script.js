@@ -172,4 +172,4 @@ window.onload = async function () {
   modify();
 };
 
-export { isToken, logDelete };
+export { isToken, logDelete, getCookie };

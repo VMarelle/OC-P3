@@ -174,12 +174,23 @@ h2 {
   color: #1d6154;
 }
 
+h3 {
+  display: flex;
+  justify-content: center;
+  height: 50px;
+  line-height: 3;
+  gap: 10px;
+}
+.fa-pen-to-square {
+  line-height: 3;
+}
 #modify {
   font-family: "Work Sans";
   font-size: 14px;
   color: black;
   display: none;
   line-height: 30px;
+  cursor: pointer;
 }
 nav ul {
   display: flex;
@@ -189,6 +200,7 @@ nav ul {
 nav li {
   padding: 0 10px;
   font-size: 1.2em;
+  cursor: pointer;
 }
 .filter {
   display: flex;
@@ -301,6 +313,7 @@ input[type="submit"] {
   width: 180px;
   text-align: center;
   border-radius: 60px;
+  cursor: pointer;
 }
 
 footer nav ul {
@@ -352,19 +365,25 @@ footer nav ul {
   float: right;
   font-size: 28px;
   font-weight: bold;
+  cursor: pointer;
 }
 
 #addPhotoForm {
-  display: none;
-  position: fixed;
+  display: flex;
+  flex-direction: column;
   z-index: 1;
-  left: 0;
-  top: 0;
   width: 100%;
   height: 100%;
   overflow: auto;
-  background-color: rgb(0, 0, 0);
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: white;
+  font-family: "Work Sans";
+  font-weight: 500;
+  font-size: 14px;
+}
+
+#addPhotoForm label {
+  margin-top: 21px;
+  margin-bottom: 10px;
 }
 
 .galleryToDelete {
@@ -408,4 +427,60 @@ footer nav ul {
   justify-content: center;
   height: 36px;
   border: none;
+  font-family: "Syne";
+  font-weight: 700;
+  color: white;
+  background-color: #1d6154;
+  margin: 2em auto;
+  width: 180px;
+  text-align: center;
+  border-radius: 60px;
+  cursor: pointer;
+  line-height: 2.5;
+}
+.off {
+  background-color: #a7a7a7;
+}
+
+.picIcon {
+  font-size: xxx-large;
+  color: #b9c5cc;
+}
+.btnPic {
+  display: flex;
+  width: auto;
+  height: 169px;
+  background-color: #e8f1f6;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 3px;
+  border: none;
+  margin-bottom: 10px;
+}
+.btnPic p {
+  font-family: "Work Sans";
+  font-weight: 400;
+  font-size: 10px;
+  color: #444444;
+}
+.btnPic button {
+  height: 169px;
+}
+
+input[type="file"] {
+  opacity: 0;
+}
+
+.custom {
+  font-family: "Work Sans";
+  font-weight: 500;
+  font-size: 14px;
+  color: #306685;
+  background-color: #cbd6dc;
+  border: 1px solid #ccc;
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 60px;
+  cursor: pointer;
 }

@@ -167,7 +167,6 @@ function modalAddPicture(works) {
   let isTitle = (event) => {
     let target = event.target || event;
     if (target.value.length <= 3) {
-      alert("titre trop court");
       return false;
     }
     return true;
@@ -183,7 +182,7 @@ function modalAddPicture(works) {
     return true;
   };
   categoriesSelect.addEventListener("change", selection);
-  addPhoto.addEventListener("mouseenter", function (event) {
+  formAdd.addEventListener("change", function (event) {
     if (newFile(addFile) && isTitle(titleForm) && selection(categoriesSelect)) {
       addPhoto.classList.remove("off");
     }

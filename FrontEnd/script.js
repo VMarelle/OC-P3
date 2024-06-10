@@ -26,6 +26,19 @@ async function logDelete(id) {
   }
 }
 
+async function postWork(data) {
+  let token = getCookie("token");
+  const response = await fetch("http://localhost:5678/api/works", {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+    body: data,
+  });
+  const res = await response.json();
+  return res;
+}
+
 window.onload = async function () {
   async function logWorks() {
     const response = await fetch("http://localhost:5678/api/works");
@@ -172,4 +185,4 @@ window.onload = async function () {
   modify();
 };
 
-export { isToken, logDelete, getCookie };
+export { isToken, logDelete, getCookie, postWork };

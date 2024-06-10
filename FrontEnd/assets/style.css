@@ -137,7 +137,6 @@ body {
 
 #edit {
   display: none;
-  background-color: black;
 }
 
 #edit h3 {
@@ -147,6 +146,7 @@ header {
   display: flex;
   justify-content: space-between;
   margin: 50px 0;
+  padding-top: 38px;
 }
 section {
   margin: 50px 0;
@@ -178,11 +178,16 @@ h3 {
   display: flex;
   justify-content: center;
   height: 50px;
-  line-height: 3;
+  line-height: 3.5;
   gap: 10px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: black;
 }
 .fa-pen-to-square {
-  line-height: 3;
+  line-height: 3.5;
 }
 #modify {
   font-family: "Work Sans";
@@ -472,6 +477,12 @@ input[type="file"] {
   opacity: 0;
 }
 
+#imgPreview {
+  max-width: 100%;
+  height: 169px;
+  display: none;
+}
+
 .custom {
   font-family: "Work Sans";
   font-weight: 500;
@@ -480,7 +491,7 @@ input[type="file"] {
   background-color: #cbd6dc;
   border: 1px solid #ccc;
   display: inline-block;
-  padding: 6px 12px;
+  padding: 8px 12px;
   border-radius: 60px;
   cursor: pointer;
 }

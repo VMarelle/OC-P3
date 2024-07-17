@@ -211,7 +211,6 @@ function modalAddPicture(works) {
       formData.append("image", file);
 
       const response = await postWork(formData);
-      console.log(response.status);
     }
   });
 

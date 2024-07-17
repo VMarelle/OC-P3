@@ -22,6 +22,7 @@ async function logDelete(id) {
       headers: { Authorization: `Bearer ${token}` },
     });
     const res = await response.json();
+    DOMFactory(await logWorks());
     return res;
   }
 }
@@ -36,6 +37,7 @@ async function postWork(data) {
     body: data,
   });
   const res = await response.json();
+  DOMFactory(await logWorks());
   return res;
 }
 
@@ -160,20 +162,6 @@ window.onload = async function () {
       addPhotoForm.style.display = "none";
       modalContent.style.display = "block";
     };
-
-    /*     span[0].onclick = cb;
-
-    span[1].onclick = cb;
-
-    window.onclick = function (event) {
-      if (event.target == modal) {
-        modal.style.display = "none";
-      }
-    };
-    addPhoto.addEventListener("click", function (event) {
-      addPhotoForm.style.display = "block";
-      modalContent.style.display = "none";
-    }); */
   }
 
   isToken();

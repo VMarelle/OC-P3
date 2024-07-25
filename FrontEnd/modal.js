@@ -1,6 +1,8 @@
-import { isToken, logDelete, getCookie, postWork } from "./script.js";
+import { isToken, logDelete, getCookie, postWork, logWorks } from "./script.js";
 
-function modalGallery(works) {
+async function modalGallery(works) {
+  works = works || (await logWorks());
+
   let modal = document.getElementById("myModal");
 
   modal.innerHTML = "";
@@ -52,7 +54,7 @@ function modalGallery(works) {
         (el) => el.imageUrl === element.children[0].src
       );
       const response = await logDelete(result[0].id);
-      location.reload();
+      modalGallery();
     });
   });
   let line = document.createElement("div");
@@ -77,46 +79,59 @@ function modalGallery(works) {
   });
 }
 
-function modalAddPicture(works) {
-  console.log(works);
+async function modalAddPicture(works) {
+  works = works || (await logWorks());
   let modalHeader = document.querySelector(".modalHeader");
   let previous = document.createElement("span");
   previous.classList.add("previous");
   previous.innerHTML = "&larr;";
   previous.addEventListener("click", function (event) {
-    modalGallery(works);
+    modalGallery();
   });
+
   let title = document.querySelector(".modal-content > h2");
   title.innerHTML = "Ajout photo";
+
   let listImg = document.querySelector(".galleryToDelete");
   listImg.innerHTML = "";
+
   let formAdd = document.createElement("form");
   formAdd.setAttribute("id", "addPhotoForm");
+
   let btnPic = document.createElement("div");
   btnPic.classList.add("btnPic");
+
   let picIcon = document.createElement("span");
   picIcon.classList.add("picIcon", "fa-regular", "fa-image");
+
   let addFile = document.createElement("input");
   addFile.type = "file";
   addFile.setAttribute("id", "fileUpload");
+
   let imgPreview = document.createElement("img");
   imgPreview.setAttribute("id", "imgPreview");
   imgPreview.src = "";
   imgPreview.alt = "prévisualisation de l'image";
+
   let ajouterPhoto = document.createElement("label");
   ajouterPhoto.setAttribute("for", "fileUpload");
   ajouterPhoto.classList.add("custom");
   ajouterPhoto.innerHTML = "+ Ajouter photo";
+
   let requirements = document.createElement("p");
   requirements.innerHTML = "jpg, png : 4mo max";
+
   let titleLabel = document.createElement("label");
   titleLabel.innerHTML = "Titre";
   titleLabel.classList.add("titre");
+
   let titleForm = document.createElement("input");
   titleForm.type = "text";
+
   let categoriesLabel = document.createElement("label");
   categoriesLabel.innerHTML = "Catégorie";
   categoriesLabel.classList.add("titre");
+
   let categoriesSelect = document.createElement("select");
   categoriesSelect.setAttribute("id", "batchSelect");
 
@@ -190,6 +205,7 @@ function modalAddPicture(works) {
 
   addPhoto.addEventListener("click", async () => {
     let token = getCookie("token");
+    let resetBtnPic = document.querySelector(".btnPic");
 
     if (
       newFile(addFile) &&
@@ -211,10 +227,12 @@ function modalAddPicture(works) {
       formData.append("image", file);
 
       const response = await postWork(formData);
+      modalAddPicture();
     }
   });
 
-  modalHeader.appendChild(previous);
+  if (!modalHeader.querySelector(".previous"))
+    modalHeader.appendChild(previous);
   btnPic.appendChild(picIcon);
   btnPic.appendChild(addFile);
   btnPic.appendChild(imgPreview);
